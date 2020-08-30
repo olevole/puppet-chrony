@@ -193,7 +193,7 @@ class chrony (
   Stdlib::Filemode $config_keys_mode                               = $chrony::params::config_keys_mode,
   Boolean $config_keys_manage                                      = true,
   Array[String[1]] $keys                                           = [],
-  Stdlib::Unixpath $driftfile                                      = '/var/lib/chrony/drift',
+  Stdlib::Unixpath $driftfile                                      = $chrony::params::driftfile,
   Integer[1,15] $local_stratum                                     = 10,
   Optional[String[1]] $log_options                                 = undef,
   String[1] $package_ensure                                        = 'present',

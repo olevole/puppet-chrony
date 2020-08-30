@@ -15,6 +15,7 @@ class chrony::params {
       $clientlog         = true
       $rtconutc          = true
       $dumpdir           = '/var/lib/chrony'
+      $driftfile         = '/var/lib/chrony/drift'
     }
     'Gentoo' : {
       $package_name      = 'net-misc/chrony'
@@ -28,6 +29,7 @@ class chrony::params {
       $clientlog         = true
       $rtconutc          = true
       $dumpdir           = undef
+      $driftfile         = '/var/lib/chrony/drift'
     }
     'Suse', 'RedHat' : {
       $package_name      = 'chrony'
@@ -41,6 +43,7 @@ class chrony::params {
       $clientlog         = false
       $rtconutc          = false
       $dumpdir           = undef
+      $driftfile         = '/var/lib/chrony/drift'
     }
     'Debian' : {
       $package_name      = 'chrony'
@@ -54,6 +57,21 @@ class chrony::params {
       $clientlog         = false
       $rtconutc          = false
       $dumpdir           = undef
+      $driftfile         = '/var/lib/chrony/drift'
+    }
+    'FreeBSD' : {
+      $package_name      = 'chrony'
+      $cmdacl            = []
+      $config            = '/usr/local/etc/chrony.conf'
+      $config_keys       = '/usr/local/etc/chrony.keys'
+      $config_keys_owner = 0
+      $config_keys_group = 0
+      $config_keys_mode  = '0640'
+      $service_name      = 'chronyd'
+      $clientlog         = false
+      $rtconutc          = true
+      $dumpdir           = '/var/db/chrony'
+      $driftfile         = '/var/db/chrony/drift'
     }
 
     default     : {
